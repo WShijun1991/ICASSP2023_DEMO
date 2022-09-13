@@ -1,0 +1,778 @@
+<!-- <html> 
+<head> 
+<script> 
+
+function changeImage(img_path)
+{
+var img = document.getElementById("image");
+img.src=img_path;
+return false;
+}
+
+</script>
+
+</head>
+<body>
+<img width=25% height=25% id="image" src="images/test1.png" />
+<br><br><br>
+<button id="clickme" onclick="changeImage('images/test2.png');">Click to change image!</button>
+</body>
+</html> -->
+
+
+<!-- todo -->
+<!-- text wrap the labels -->
+<!-- borderless table -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>EmoTTS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<script>
+
+    function info_display(info, mel_path, audio_path) {
+        var x = document.getElementById("sec1_info");
+        x.innerHTML = info;
+
+        var img = document.getElementById("sec1_image");
+        img.src=mel_path;
+
+        var audio = document.getElementById("sec1_audio");
+        audio.src=audio_path;
+
+    }
+    </script>
+<body>
+    <style>
+
+    </style>
+    <div class="container-fluid">
+        <!-- Heading -->
+        <div class="row mb-5 py-5 text-center btn-success" id="Header">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h1  class="display-4">Demo Page</h1>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        <!-- Naturalness -->
+        <div class="row my-5 text-center">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <p class="lead text-justify">
+                    TODO
+                </p>
+                
+                <h2 class="my-5">Emotion Intensity Control</h2>
+                <p>
+                    <img  height=40% id="sec1_image" src="images/jenie-Neutral.png" />
+                </p>
+                <div >
+                    <h5 >Text: From that moment, his friendship for Belize turns to hatred and jealousy.</h5>
+                </div>
+                <audio controls id="sec1_audio" src="samples/jenie-Neutral.wav"></audio>
+
+                <div >
+                    <h4 id="sec1_info" class="my-5">Speaker: Jenie | Emotion: Neutral</h4>
+                </div>
+
+                <table class="table table-bordered table-hover">
+                        <col>
+                        <col>
+                        <colgroup span="4"></colgroup>
+                        <tr class="text-lead h4">
+                                <th></th>
+                                <th colspan="4" scope="colgroup">Neutral</th>
+                                <th colspan="4" scope="colgroup">Amused</th>
+                                <th colspan="4" scope="colgroup">Disgusted</th>
+                                <th colspan="4" scope="colgroup">Angry</th>
+                                <th colspan="4" scope="colgroup">Sleepy</th>
+                        </tr>
+                        <tbody>
+                            <tr>
+                                <th scope="col">Speaker</th>
+                                <td scope="col">Jenie</td>
+                                <td scope="col">Bea</td>
+                                <td scope="col">Sam</td>
+                                <td scope="col">Josh</td>
+                                <td bgcolor="#D7DBDD" scope="col">Jenie</td>
+                                <td bgcolor="#D7DBDD" scope="col">Bea</td>
+                                <td bgcolor="#D7DBDD" scope="col">Sam</td>
+                                <td bgcolor="#D7DBDD" scope="col">Josh</td>
+                                <td scope="col">Jenie</td>
+                                <td scope="col">Bea</td>
+                                <td scope="col">Sam</td>
+                                <td scope="col">Josh<sup>*</sup></td>
+                                <td bgcolor="#D7DBDD" scope="col">Jenie</td>
+                                <td bgcolor="#D7DBDD" scope="col">Bea</td>
+                                <td bgcolor="#D7DBDD" scope="col">Sam</td>
+                                <td bgcolor="#D7DBDD" scope="col">Josh<sup>*</sup></td>
+                                <td scope="col">Jenie</td>
+                                <td scope="col">Bea</td>
+                                <td scope="col">Sam</td>
+                                <td scope="col">Josh</td>
+                            </tr>
+                        </tbody>
+                        <tbody>
+                            <tr>
+                                <th rowspan="5" scope="rowgroup">Intensity</th>
+                                <td rowspan="5" scope="rowgroup">
+                                    <div>
+                                        <input type="radio" id="jenie_neutral" name="sec1" onclick="info_display(this.value, `images/jenie-Neutral.png`, `samples/jenie-Neutral.wav`)" value="Speaker: Jenie | Emotion: Neutral" checked>
+                                        <label for="jenie_neutral">neutral</label>
+                                    </div>
+                                </td>
+                                <td rowspan="5" scope="rowgroup">
+                                    <div>
+                                        <input type="radio" id="bea_neutral" name="sec1" onclick="info_display(this.value, `images/bea-Neutral.png`, `samples/bea-Neutral.wav`)" value="Speaker: Bea | Emotion: Neutral">
+                                        <label for="bea_neutral">neutral</label>
+                                    </div>
+                                </td>
+                                <td rowspan="5" scope="rowgroup">
+                                    <div>
+                                        <input type="radio" id="sam_neutral" name="sec1" onclick="info_display(this.value, `images/sam-Neutral.png`, `samples/sam-Neutral.wav`)" value="Speaker: Sam | Emotion: Neutral">
+                                        <label for="sam_neutral">neutral</label>
+                                    </div>
+                                </td>
+                                <td rowspan="5" scope="rowgroup">
+                                    <div>
+                                        <input type="radio" id="josh_neutral" name="sec1" onclick="info_display(this.value, `images/josh-Neutral.png`, `samples/josh-Neutral.wav`)" value="Speaker: Josh | Emotion: Neutral">
+                                        <label for="josh_neutral">neutral</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="jenie_min" name="sec1" onclick="info_display(this.value, `images/jenie-Amused-min.png`, `samples/jenie-Amused-min.wav`)" value="Speaker: Jenie | Emotion: Amused | Intensity: Min">
+                                        <label for="jenie_min">min</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="bea_min" name="sec1" onclick="info_display(this.value, `images/bea-Amused-min.png`, `samples/bea-Amused-min.wav`)" value="Speaker: Bea | Emotion: Amused | Intensity: Min">
+                                        <label for="bea_min">min</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="sam_min" name="sec1" onclick="info_display(this.value, `images/sam-Amused-min.png`, `samples/sam-Amused-min.wav`)" value="Speaker: Sam | Emotion: Amused | Intensity: Min">
+                                        <label for="sam_min">min</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="josh_min" name="sec1" onclick="info_display(this.value, `images/josh-Amused-min.png`, `samples/josh-Amused-min.wav`)" value="Speaker: Josh | Emotion: Amused | Intensity: Min">
+                                        <label for="josh_min">min</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="jenie_min" name="sec1" onclick="info_display(this.value, `images/jenie-Disgusted-min.png`, `samples/jenie-Disgusted-min.wav`)" value="Speaker: Jenie | Emotion: Disgusted | Intensity: Min">
+                                        <label for="jenie_min">min</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="bea_min" name="sec1" onclick="info_display(this.value, `images/bea-Disgusted-min.png`, `samples/bea-Disgusted-min.wav`)" value="Speaker: Bea | Emotion: Disgusted | Intensity: Min">
+                                        <label for="bea_min">min</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="sam_min" name="sec1" onclick="info_display(this.value, `images/sam-Disgusted-min.png`, `samples/sam-Disgusted-min.wav`)" value="Speaker: Sam | Emotion: Disgusted | Intensity: Min">
+                                        <label for="sam_min">min</label>
+                                    </div>
+                                </td>
+                                <td>/</td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="jenie_min" name="sec1" onclick="info_display(this.value, `images/jenie-Angry-min.png`, `samples/jenie-Angry-min.wav`)" value="Speaker: Jenie | Emotion: Angry | Intensity: Min">
+                                        <label for="jenie_min">min</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="bea_min" name="sec1" onclick="info_display(this.value, `images/bea-Angry-min.png`, `samples/bea-Angry-min.wav`)" value="Speaker: Bea | Emotion: Angry | Intensity: Min">
+                                        <label for="bea_min">min</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="sam_min" name="sec1" onclick="info_display(this.value, `images/sam-Angry-min.png`, `samples/sam-Angry-min.wav`)" value="Speaker: Sam | Emotion: Angry | Intensity: Min">
+                                        <label for="sam_min">min</label>
+                                    </div>
+                                </td>           
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    /
+                                </td>         
+                                <td>
+                                    <div>
+                                        <input type="radio" id="jenie_min" name="sec1" onclick="info_display(this.value, `images/jenie-Sleepy-min.png`, `samples/jenie-Sleepy-min.wav`)" value="Speaker: Jenie | Emotion: Sleepy | Intensity: Min">
+                                        <label for="jenie_min">min</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="bea_min" name="sec1" onclick="info_display(this.value, `images/bea-Sleepy-min.png`, `samples/bea-Sleepy-min.wav`)" value="Speaker: Bea | Emotion: Sleepy | Intensity: Min">
+                                        <label for="bea_min">min</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="sam_min" name="sec1" onclick="info_display(this.value, `images/sam-Sleepy-min.png`, `samples/sam-Sleepy-min.wav`)" value="Speaker: Sam | Emotion: Sleepy | Intensity: Min">
+                                        <label for="sam_min">min</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="josh_min" name="sec1" onclick="info_display(this.value, `images/josh-Sleepy-min.png`, `samples/josh-Sleepy-min.wav`)" value="Speaker: Josh | Emotion: Sleepy | Intensity: Min">
+                                        <label for="josh_min">min</label>
+                                    </div>
+                                </td>                                              
+                            </tr>
+                            <tr>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="jenie_median" name="sec1" onclick="info_display(this.value, `images/jenie-Amused-median.png`, `samples/jenie-Amused-median.wav`)" value="Speaker: Jenie | Emotion: Amused | Intensity: Median">
+                                        <label for="jenie_median">median</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="bea_median" name="sec1" onclick="info_display(this.value, `images/bea-Amused-median.png`, `samples/bea-Amused-median.wav`)" value="Speaker: Bea | Emotion: Amused | Intensity: Median">
+                                        <label for="bea_median">median</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="sam_median" name="sec1" onclick="info_display(this.value, `images/sam-Amused-median.png`, `samples/sam-Amused-median.wav`)" value="Speaker: Sam | Emotion: Amused | Intensity: Median">
+                                        <label for="sam_median">median</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="josh_median" name="sec1" onclick="info_display(this.value, `images/josh-Amused-median.png`, `samples/josh-Amused-median.wav`)" value="Speaker: Josh | Emotion: Amused | Intensity: Median">
+                                        <label for="josh_median">median</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="jenie_median" name="sec1" onclick="info_display(this.value, `images/jenie-Disgusted-median.png`, `samples/jenie-Disgusted-median.wav`)" value="Speaker: Jenie | Emotion: Disgusted | Intensity: Median">
+                                        <label for="jenie_median">median</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="bea_median" name="sec1" onclick="info_display(this.value, `images/bea-Disgusted-median.png`, `samples/bea-Disgusted-median.wav`)" value="Speaker: Bea | Emotion: Disgusted | Intensity: Median">
+                                        <label for="bea_median">median</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="sam_median" name="sec1" onclick="info_display(this.value, `images/sam-Disgusted-median.png`, `samples/sam-Disgusted-median.wav`)" value="Speaker: Sam | Emotion: Disgusted | Intensity: Median">
+                                        <label for="sam_median">median</label>
+                                    </div>
+                                </td>
+                                <td>/</td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="jenie_median" name="sec1" onclick="info_display(this.value, `images/jenie-Angry-median.png`, `samples/jenie-Angry-median.wav`)" value="Speaker: Jenie | Emotion: Angry | Intensity: Median">
+                                        <label for="jenie_median">median</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="bea_median" name="sec1" onclick="info_display(this.value, `images/bea-Angry-median.png`, `samples/bea-Angry-median.wav`)" value="Speaker: Bea | Emotion: Angry | Intensity: Median">
+                                        <label for="bea_median">median</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="sam_median" name="sec1" onclick="info_display(this.value, `images/sam-Angry-median.png`, `samples/sam-Angry-median.wav`)" value="Speaker: Sam | Emotion: Angry | Intensity: Median">
+                                        <label for="sam_median">median</label>
+                                    </div>
+                                </td>           
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    /
+                                </td>         
+                                <td>
+                                    <div>
+                                        <input type="radio" id="jenie_median" name="sec1" onclick="info_display(this.value, `images/jenie-Sleepy-median.png`, `samples/jenie-Sleepy-median.wav`)" value="Speaker: Jenie | Emotion: Sleepy | Intensity: Median">
+                                        <label for="jenie_median">median</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="bea_median" name="sec1" onclick="info_display(this.value, `images/bea-Sleepy-median.png`, `samples/bea-Sleepy-median.wav`)" value="Speaker: Bea | Emotion: Sleepy | Intensity: Median">
+                                        <label for="bea_median">median</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="sam_median" name="sec1" onclick="info_display(this.value, `images/sam-Sleepy-median.png`, `samples/sam-Sleepy-median.wav`)" value="Speaker: Sam | Emotion: Sleepy | Intensity: Median">
+                                        <label for="sam_median">median</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="josh_median" name="sec1" onclick="info_display(this.value, `images/josh-Sleepy-median.png`, `samples/josh-Sleepy-median.wav`)" value="Speaker: Josh | Emotion: Sleepy | Intensity: Median">
+                                        <label for="josh_median">median</label>
+                                    </div>
+                                </td>                                              
+                            </tr>
+                            <tr>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="jenie_max" name="sec1" onclick="info_display(this.value, `images/jenie-Amused-max.png`, `samples/jenie-Amused-max.wav`)" value="Speaker: Jenie | Emotion: Amused | Intensity: Max">
+                                        <label for="jenie_max">max</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="bea_max" name="sec1" onclick="info_display(this.value, `images/bea-Amused-max.png`, `samples/bea-Amused-max.wav`)" value="Speaker: Bea | Emotion: Amused | Intensity: Max">
+                                        <label for="bea_max">max</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="sam_max" name="sec1" onclick="info_display(this.value, `images/sam-Amused-max.png`, `samples/sam-Amused-max.wav`)" value="Speaker: Sam | Emotion: Amused | Intensity: Max">
+                                        <label for="sam_max">max</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="josh_max" name="sec1" onclick="info_display(this.value, `images/josh-Amused-max.png`, `samples/josh-Amused-max.wav`)" value="Speaker: Josh | Emotion: Amused | Intensity: Max">
+                                        <label for="josh_max">max</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="jenie_max" name="sec1" onclick="info_display(this.value, `images/jenie-Disgusted-max.png`, `samples/jenie-Disgusted-max.wav`)" value="Speaker: Jenie | Emotion: Disgusted | Intensity: Max">
+                                        <label for="jenie_max">max</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="bea_max" name="sec1" onclick="info_display(this.value, `images/bea-Disgusted-max.png`, `samples/bea-Disgusted-max.wav`)" value="Speaker: Bea | Emotion: Disgusted | Intensity: Max">
+                                        <label for="bea_max">max</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="sam_max" name="sec1" onclick="info_display(this.value, `images/sam-Disgusted-max.png`, `samples/sam-Disgusted-max.wav`)" value="Speaker: Sam | Emotion: Disgusted | Intensity: Max">
+                                        <label for="sam_max">max</label>
+                                    </div>
+                                </td>
+                                <td>/</td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="jenie_max" name="sec1" onclick="info_display(this.value, `images/jenie-Angry-max.png`, `samples/jenie-Angry-max.wav`)" value="Speaker: Jenie | Emotion: Angry | Intensity: Max">
+                                        <label for="jenie_max">max</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="bea_max" name="sec1" onclick="info_display(this.value, `images/bea-Angry-max.png`, `samples/bea-Angry-max.wav`)" value="Speaker: Bea | Emotion: Angry | Intensity: Max">
+                                        <label for="bea_max">max</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="sam_max" name="sec1" onclick="info_display(this.value, `images/sam-Angry-max.png`, `samples/sam-Angry-max.wav`)" value="Speaker: Sam | Emotion: Angry | Intensity: Max">
+                                        <label for="sam_max">max</label>
+                                    </div>
+                                </td>           
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    /
+                                </td>         
+                                <td>
+                                    <div>
+                                        <input type="radio" id="jenie_max" name="sec1" onclick="info_display(this.value, `images/jenie-Sleepy-max.png`, `samples/jenie-Sleepy-max.wav`)" value="Speaker: Jenie | Emotion: Sleepy | Intensity: Max">
+                                        <label for="jenie_max">max</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="bea_max" name="sec1" onclick="info_display(this.value, `images/bea-Sleepy-max.png`, `samples/bea-Sleepy-max.wav`)" value="Speaker: Bea | Emotion: Sleepy | Intensity: Max">
+                                        <label for="bea_max">max</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="sam_max" name="sec1" onclick="info_display(this.value, `images/sam-Sleepy-max.png`, `samples/sam-Sleepy-max.wav`)" value="Speaker: Sam | Emotion: Sleepy | Intensity: Max">
+                                        <label for="sam_max">max</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="josh_max" name="sec1" onclick="info_display(this.value, `images/josh-Sleepy-max.png`, `samples/josh-Sleepy-max.wav`)" value="Speaker: Josh | Emotion: Sleepy | Intensity: Max">
+                                        <label for="josh_max">max</label>
+                                    </div>
+                                </td>                                              
+                            </tr>
+                            <tr>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="jenie_increase" name="sec1" onclick="info_display(this.value, `images/jenie-Amused-increase.png`, `samples/jenie-Amused-increase.wav`)" value="Speaker: Jenie | Emotion: Amused | Intensity: Increase">
+                                        <label for="jenie_increase">increase</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="bea_increase" name="sec1" onclick="info_display(this.value, `images/bea-Amused-increase.png`, `samples/bea-Amused-increase.wav`)" value="Speaker: Bea | Emotion: Amused | Intensity: Increase">
+                                        <label for="bea_increase">increase</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="sam_increase" name="sec1" onclick="info_display(this.value, `images/sam-Amused-increase.png`, `samples/sam-Amused-increase.wav`)" value="Speaker: Sam | Emotion: Amused | Intensity: Increase">
+                                        <label for="sam_increase">increase</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="josh_increase" name="sec1" onclick="info_display(this.value, `images/josh-Amused-increase.png`, `samples/josh-Amused-increase.wav`)" value="Speaker: Josh | Emotion: Amused | Intensity: Increase">
+                                        <label for="josh_increase">increase</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="jenie_increase" name="sec1" onclick="info_display(this.value, `images/jenie-Disgusted-increase.png`, `samples/jenie-Disgusted-increase.wav`)" value="Speaker: Jenie | Emotion: Disgusted | Intensity: Increase">
+                                        <label for="jenie_increase">increase</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="bea_increase" name="sec1" onclick="info_display(this.value, `images/bea-Disgusted-increase.png`, `samples/bea-Disgusted-increase.wav`)" value="Speaker: Bea | Emotion: Disgusted | Intensity: Increase">
+                                        <label for="bea_increase">increase</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="sam_increase" name="sec1" onclick="info_display(this.value, `images/sam-Disgusted-increase.png`, `samples/sam-Disgusted-increase.wav`)" value="Speaker: Sam | Emotion: Disgusted | Intensity: Increase">
+                                        <label for="sam_increase">increase</label>
+                                    </div>
+                                </td>
+                                <td>/</td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="jenie_increase" name="sec1" onclick="info_display(this.value, `images/jenie-Angry-increase.png`, `samples/jenie-Angry-increase.wav`)" value="Speaker: Jenie | Emotion: Angry | Intensity: Increase">
+                                        <label for="jenie_increase">increase</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="bea_increase" name="sec1" onclick="info_display(this.value, `images/bea-Angry-increase.png`, `samples/bea-Angry-increase.wav`)" value="Speaker: Bea | Emotion: Angry | Intensity: Increase">
+                                        <label for="bea_increase">increase</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="sam_increase" name="sec1" onclick="info_display(this.value, `images/sam-Angry-increase.png`, `samples/sam-Angry-increase.wav`)" value="Speaker: Sam | Emotion: Angry | Intensity: Increase">
+                                        <label for="sam_increase">increase</label>
+                                    </div>
+                                </td>           
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    /
+                                </td>         
+                                <td>
+                                    <div>
+                                        <input type="radio" id="jenie_increase" name="sec1" onclick="info_display(this.value, `images/jenie-Sleepy-increase.png`, `samples/jenie-Sleepy-increase.wav`)" value="Speaker: Jenie | Emotion: Sleepy | Intensity: Increase">
+                                        <label for="jenie_increase">increase</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="bea_increase" name="sec1" onclick="info_display(this.value, `images/bea-Sleepy-increase.png`, `samples/bea-Sleepy-increase.wav`)" value="Speaker: Bea | Emotion: Sleepy | Intensity: Increase">
+                                        <label for="bea_increase">increase</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="sam_increase" name="sec1" onclick="info_display(this.value, `images/sam-Sleepy-increase.png`, `samples/sam-Sleepy-increase.wav`)" value="Speaker: Sam | Emotion: Sleepy | Intensity: Increase">
+                                        <label for="sam_increase">increase</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="josh_increase" name="sec1" onclick="info_display(this.value, `images/josh-Sleepy-increase.png`, `samples/josh-Sleepy-increase.wav`)" value="Speaker: Josh | Emotion: Sleepy | Intensity: Increase">
+                                        <label for="josh_increase">increase</label>
+                                    </div>
+                                </td>                                              
+                            </tr>
+                            <tr>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="jenie_decrease" name="sec1" onclick="info_display(this.value, `images/jenie-Amused-decrease.png`, `samples/jenie-Amused-decrease.wav`)" value="Speaker: Jenie | Emotion: Amused | Intensity: Decrease">
+                                        <label for="jenie_decrease">decrease</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="bea_decrease" name="sec1" onclick="info_display(this.value, `images/bea-Amused-decrease.png`, `samples/bea-Amused-decrease.wav`)" value="Speaker: Bea | Emotion: Amused | Intensity: Decrease">
+                                        <label for="bea_decrease">decrease</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="sam_decrease" name="sec1" onclick="info_display(this.value, `images/sam-Amused-decrease.png`, `samples/sam-Amused-decrease.wav`)" value="Speaker: Sam | Emotion: Amused | Intensity: Decrease">
+                                        <label for="sam_decrease">decrease</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="josh_decrease" name="sec1" onclick="info_display(this.value, `images/josh-Amused-decrease.png`, `samples/josh-Amused-decrease.wav`)" value="Speaker: Josh | Emotion: Amused | Intensity: Decrease">
+                                        <label for="josh_decrease">decrease</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="jenie_decrease" name="sec1" onclick="info_display(this.value, `images/jenie-Disgusted-decrease.png`, `samples/jenie-Disgusted-decrease.wav`)" value="Speaker: Jenie | Emotion: Disgusted | Intensity: Decrease">
+                                        <label for="jenie_decrease">decrease</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="bea_decrease" name="sec1" onclick="info_display(this.value, `images/bea-Disgusted-decrease.png`, `samples/bea-Disgusted-decrease.wav`)" value="Speaker: Bea | Emotion: Disgusted | Intensity: Decrease">
+                                        <label for="bea_decrease">decrease</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="sam_decrease" name="sec1" onclick="info_display(this.value, `images/sam-Disgusted-decrease.png`, `samples/sam-Disgusted-decrease.wav`)" value="Speaker: Sam | Emotion: Disgusted | Intensity: Decrease">
+                                        <label for="sam_decrease">decrease</label>
+                                    </div>
+                                </td>
+                                <td>/</td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="jenie_decrease" name="sec1" onclick="info_display(this.value, `images/jenie-Angry-decrease.png`, `samples/jenie-Angry-decrease.wav`)" value="Speaker: Jenie | Emotion: Angry | Intensity: Decrease">
+                                        <label for="jenie_decrease">decrease</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="bea_decrease" name="sec1" onclick="info_display(this.value, `images/bea-Angry-decrease.png`, `samples/bea-Angry-decrease.wav`)" value="Speaker: Bea | Emotion: Angry | Intensity: Decrease">
+                                        <label for="bea_decrease">decrease</label>
+                                    </div>
+                                </td>
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    <div>
+                                        <input type="radio" id="sam_decrease" name="sec1" onclick="info_display(this.value, `images/sam-Angry-decrease.png`, `samples/sam-Angry-decrease.wav`)" value="Speaker: Sam | Emotion: Angry | Intensity: Decrease">
+                                        <label for="sam_decrease">decrease</label>
+                                    </div>
+                                </td>           
+                                <td bgcolor="#D7DBDD" scope="col">
+                                    /  
+                                </td>         
+                                <td>
+                                    <div>
+                                        <input type="radio" id="jenie_decrease" name="sec1" onclick="info_display(this.value, `images/jenie-Sleepy-decrease.png`, `samples/jenie-Sleepy-decrease.wav`)" value="Speaker: Jenie | Emotion: Sleepy | Intensity: Decrease">
+                                        <label for="jenie_decrease">decrease</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="bea_decrease" name="sec1" onclick="info_display(this.value, `images/bea-Sleepy-decrease.png`, `samples/bea-Sleepy-decrease.wav`)" value="Speaker: Bea | Emotion: Sleepy | Intensity: Decrease">
+                                        <label for="bea_decrease">decrease</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="sam_decrease" name="sec1" onclick="info_display(this.value, `images/sam-Sleepy-decrease.png`, `samples/sam-Sleepy-decrease.wav`)" value="Speaker: Sam | Emotion: Sleepy | Intensity: Decrease">
+                                        <label for="sam_decrease">decrease</label>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div>
+                                        <input type="radio" id="josh_decrease" name="sec1" onclick="info_display(this.value, `images/josh-Sleepy-decrease.png`, `samples/josh-Sleepy-decrease.wav`)" value="Speaker: Josh | Emotion: Sleepy | Intensity: Decrease">
+                                        <label for="josh_decrease">decrease</label>
+                                    </div>
+                                </td>                                              
+                            </tr>
+                        </tbody>
+                </table>
+                <p class="text-justify">*In the dataset, Josh has no data for Disgusted and Angry.</p>
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+        
+        <!-- Baseline -->
+        <div class="row text-center my-5">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h2 class="mb-5">Comparison with Baseline Models</h2>
+                <p class="lead text-justify">
+                    <!-- ADD SPEAKER SIMILARITY TEXT HERE -->
+                    RFTacotron: Lee, Younggun and Taesu Kim. "Robust and Fine-grained Prosody Control of End-to-end Speech Synthesis." ICASSP 2019.
+                </p>
+                <p class="lead text-justify">
+                    <!-- ADD SPEAKER SIMILARITY TEXT HERE -->
+                    FEC: Lei, Yinjiao et al. "Fine-Grained Emotion Strength Transfer, Control and Prediction for Emotional Speech Synthesis." SLT 2021.
+                </p>
+                <table class="table table-hover">
+                    <tr class="text-lead h4">
+                        <th class="text-center"></th>
+                        <th class="text-center">RFTacotron</th>
+                        <th class="text-center">FEC</th>
+                        <th class="text-center">Ours</th>
+                    </tr>
+
+                            <tr class="table-borderless">
+                                <td>
+                                        <font size="5">Emotion: Amused&nbsp;&nbsp;</font>
+                                </td>
+                                <td>
+                                    <font size="3">Min:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Amused/RFTacotron/sam-Amused-min.wav></audio>
+                                    <p></p>
+                                    <font size="3">Median:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Amused/RFTacotron/sam-Amused-median.wav></audio>
+                                    <p></p>
+                                    <font size="3">Max:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Amused/RFTacotron/sam-Amused-max.wav></audio>
+                                </td>
+                                <td>
+                                    <font size="3">Min:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Amused/FEC/sam-Amused-min.wav></audio>
+                                    <p></p>
+                                    <font size="3">Median:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Amused/FEC/sam-Amused-median.wav></audio>
+                                    <p></p>
+                                    <font size="3">Max:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Amused/FEC/sam-Amused-max.wav></audio>
+                                </td>
+                                <td>
+                                    <font size="3">Min:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Amused/Ours/sam-Amused-min.wav></audio>
+                                    <p></p>
+                                    <font size="3">Median:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Amused/Ours/sam-Amused-median.wav></audio>
+                                    <p></p>
+                                    <font size="3">Max:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Amused/Ours/sam-Amused-max.wav></audio>
+                                </td>
+                            </tr>
+                            <tr class="table-borderless">
+                                <td>
+                                    <font size="5">Emotion: Angry&nbsp;&nbsp;</font>
+                                </td>
+                                <td>
+                                    <font size="3">Min:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Angry/RFTacotron/jenie-Angry-min.wav></audio>
+                                    <p></p>
+                                    <font size="3">Median:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Angry/RFTacotron/jenie-Angry-median.wav></audio>
+                                    <p></p>
+                                    <font size="3">Max:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Angry/RFTacotron/jenie-Angry-max.wav></audio>
+                                </td>
+                                <td>
+                                    <font size="3">Min:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Angry/FEC/jenie-Angry-min.wav></audio>
+                                    <p></p>
+                                    <font size="3">Median:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Angry/FEC/jenie-Angry-median.wav></audio>
+                                    <p></p>
+                                    <font size="3">Max:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Angry/FEC/jenie-Angry-max.wav></audio>
+                                </td>
+                                <td>
+                                    <font size="3">Min:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Angry/Ours/jenie-Angry-min.wav></audio>
+                                    <p></p>
+                                    <font size="3">Median:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Angry/Ours/jenie-Angry-median.wav></audio>
+                                    <p></p>
+                                    <font size="3">Max:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Angry/Ours/jenie-Angry-max.wav></audio>
+                                </td>
+                            </tr>
+                            <tr class="table-borderless">
+                                <td>
+                                    <font size="5">Emotion: Disgusted&nbsp;&nbsp;</font>
+                                </td>
+                                <td>
+                                    <font size="3">Min:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Disgusted/RFTacotron/bea-Disgusted-min.wav></audio>
+                                    <p></p>
+                                    <font size="3">Median:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Disgusted/RFTacotron/bea-Disgusted-median.wav></audio>
+                                    <p></p>
+                                    <font size="3">Max:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Disgusted/RFTacotron/bea-Disgusted-max.wav></audio>
+                                </td>
+                                <td>
+                                    <font size="3">Min:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Disgusted/FEC/bea-Disgusted-min.wav></audio>
+                                    <p></p>
+                                    <font size="3">Median:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Disgusted/FEC/bea-Disgusted-median.wav></audio>
+                                    <p></p>
+                                    <font size="3">Max:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Disgusted/FEC/bea-Disgusted-max.wav></audio>
+                                </td>
+                                <td>
+                                    <font size="3">Min:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Disgusted/Ours/bea-Disgusted-min.wav></audio>
+                                    <p></p>
+                                    <font size="3">Median:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Disgusted/Ours/bea-Disgusted-median.wav></audio>
+                                    <p></p>
+                                    <font size="3">Max:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Disgusted/Ours/bea-Disgusted-max.wav></audio>
+                                </td>
+                            </tr>
+                            <tr class="table-borderless">
+                                <td>
+                                    <font size="5">Emotion: Sleepy&nbsp;&nbsp;</font>
+                                </td>
+                                <td>
+                                    <font size="3">Min:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Sleepy/RFTacotron/josh-Sleepy-min.wav></audio>
+                                    <p></p>
+                                    <font size="3">Median:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Sleepy/RFTacotron/josh-Sleepy-median.wav></audio>
+                                    <p></p>
+                                    <font size="3">Max:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Sleepy/RFTacotron/josh-Sleepy-max.wav></audio>
+                                </td>
+                                <td>
+                                    <font size="3">Min:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Sleepy/FEC/josh-Sleepy-min.wav></audio>
+                                    <p></p>
+                                    <font size="3">Median:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Sleepy/FEC/josh-Sleepy-median.wav></audio>
+                                    <p></p>
+                                    <font size="3">Max:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Sleepy/FEC/josh-Sleepy-max.wav></audio>
+                                </td>
+                                <td>
+                                    <font size="3">Min:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Sleepy/Ours/josh-Sleepy-min.wav></audio>
+                                    <p></p>
+                                    <font size="3">Median:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Sleepy/Ours/josh-Sleepy-median.wav></audio>
+                                    <p></p>
+                                    <font size="3">Max:&nbsp;&nbsp;</font>
+                                    <audio style="vertical-align: middle;" controls src=comparison/Sleepy/Ours/josh-Sleepy-max.wav></audio>
+                                </td>
+                            </tr>
+                </table>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+
+       
+    </div>
+</body>
+</html>
